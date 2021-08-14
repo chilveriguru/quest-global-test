@@ -1,21 +1,21 @@
 // import logo from './logo.svg';
 // import './App.css';
-import LoginUser from './components/Login';
+import LoginUser from './components/pages/Login';
 import Product from './components/Product';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Navbar from './Navbar';
-
+import Navbar from './components/Layout/Navbar';
+import Register from './components/pages/Register';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 function App() {
-  localStorage.setItem("username", "admin");
-  localStorage.setItem("password", "123456");
   return (
     <div className="App">
       {/* <LoginUser /> */}
       <Router>
-        <Navbar/>
+        <Navbar />
         <Switch>
-          <Route exact path="/product" component={Product} />
+          <PrivateRoute exact path="/product" component={Product} />
           <Route exact path="/" component={LoginUser} />
+          <Route exact path="/register" component={Register} />
         </Switch>
       </Router>
       {/* <Product /> */}

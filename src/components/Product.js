@@ -1,10 +1,8 @@
 import React, { Fragment, useState } from 'react'
-import { ProductDetails } from '../data/ProductDetails'
+import { ProductDetails } from '../assets/ProductDetails'
 
 let Product = () => {
-    let [ProductInfo, setProductInfo] = useState(ProductDetails)
     let [search, setsearch] = useState("");
-    let [info, setInfo] = useState(false)
     let [EstimatedPrice, setEstimatedPrice] = useState()
     let [mileage, setmileage] = useState(null)
     let [TotalPrice, setTotalPrice] = useState()
@@ -34,14 +32,12 @@ let Product = () => {
         console.log("No Day", Bookdeails)
         const filterProduct = ProductDetails.filter((item, index) => index == Bookdeails.NameIndex);
         // console.log("filter product", filterProduct[0].price * result * 10)
-        console.log("filter mileage", filterProduct[0].mileage)
 
         //  10 miles will be added every day so the multi by 10
 
         setEstimatedPrice(filterProduct[0].price * result)
         setTotalPrice(filterProduct[0].price * result * 10)
         setmileage(filterProduct[0].mileage)
-        // filterProduct.price*result
 
     }
 
@@ -50,7 +46,7 @@ let Product = () => {
     return (
         <Fragment>
             {/* <pre>{JSON.stringify(searched(ProductDetails))}</pre> */}
-            <pre>{JSON.stringify(Bookdeails)}</pre>
+            {/* <pre>{JSON.stringify(Bookdeails)}</pre> */}
 
             <div className="container mt-5">
                 <input type="text" name="search" value={search} onChange={(e) => setsearch(e.target.value)} className="form-control" placeholder="Search by Name" /><br />
